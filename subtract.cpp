@@ -65,5 +65,12 @@ int main()
         char cc= s+48;                                // to convert integer to character
         ans = cc+ans;
     }
+    long k=-1;
+    for(int i=0;i<ans.length();i++)
+       if(ans[i]=='0')
+         k=i;
+         else
+         break;
+     ans.erase(0,k+1);    
     cout<<ans<<endl;
 }
