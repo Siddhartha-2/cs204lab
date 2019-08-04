@@ -1,8 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main()
-{
-    string a,b;
+{  
+    int t;
+    cin>>t;
+    while(t--)
+    {
+     string a,b;
     cin>>a>>b;
     string temp;                            // to swap the strings
     int d=0,i=0;
@@ -73,4 +77,5 @@ int main()
          break;
      ans.erase(0,k+1);    
     cout<<ans<<endl;
+    }
 }

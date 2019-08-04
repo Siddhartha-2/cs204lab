@@ -1,8 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main()
-{
-    string a,b;
+{ 
+  int t;
+  cin>>t;
+  while(t--)
+    { 
+      string a,b;
     cin>>a>>b;
     int c=0,ka=a.length()-1,kb=b.length()-1,s=0;  // c is for carry initially it is 0
     string ans="";                               // variable ans to store the answer
@@ -27,4 +31,5 @@ int main()
          ans=cc+ans;
      }
      cout<<ans<<endl;
+    }
 }

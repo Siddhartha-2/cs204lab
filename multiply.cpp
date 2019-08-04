@@ -2,8 +2,11 @@
 using namespace std;
 typedef long long int lli;
 int main()
-{
-    string a,b;
+{  int t;
+ cin>>t;
+ while(t--)
+    {
+        string a,b;
     cin>>a>>b;
     lli k=0,kk=0,s=0,c=0;
     lli ans[a.length()+b.length()]={0};
@@ -47,4 +50,5 @@ int main()
         cout<<cc;
     }
     cout<<endl;
+    }
 }

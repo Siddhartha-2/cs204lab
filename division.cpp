@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
-using namespace std;
-typedef unsigned long long int ulli;
+ 
 typedef long long int lli;
+typedef unsigned long long int ulli;
+typedef long double ldb;
+using namespace std;
 
 bool isSmaller(string str1, string str2) 
 { 
@@ -20,7 +22,7 @@ bool isSmaller(string str1, string str2)
         return false; 
   
     return true; 
-}
+} 
 
 string subtract(string a,string b)
   { 
@@ -104,39 +106,12 @@ string multiply(string a,string b)
     return m;
 }
 
-string add(string a,string b)
-{
-    int c=0,ka=a.length()-1,kb=b.length()-1,s=0;  // c is for carry initially it is 0
-    string ans="";                               // variable ans to store the answer
-    while(ka>=0||kb>=0)
-    {
-        if(ka>=0&&kb>=0)
-          s=c+(a[ka--]-'0')+(b[kb--]-'0');        // variable s to store the sum of two digits
-        else
-        if(ka>=0)
-          s=c+(a[ka--]-'0');
-        else
-        if(kb>=0)
-          s=c+(b[kb--]-'0');
-        c=s/10;
-        s%=10;
-        char cc=s+48;                           // to convert integer to character we add 48
-        ans=cc+ans;  
-    }
-    if(c>0)                                     // if carry is positive then add it
-     { 
-         char cc=c+48;
-         ans=cc+ans;
-     }
-     return ans;
-}
-
-string divide(string a,string b)
+vector<string> divide(string a,string b)
 {
     string ans="";
     if(isSmaller(a,b))
     {
-       return a;
+       return {"0",a};
     }
     string c=b,d="1";
     int i=0;
@@ -167,35 +142,16 @@ string divide(string a,string b)
         }
         d.erase(d.begin()+d.length()-1);
     }
-    return a;
-}
-void isprime(string s)
-{  
-    int flag=0;
-    string i="2",b="1";
-    while(isSmaller(multiply(i,i),s))
-    {
-        if(divide(s,i)=="0")
-           {
-               flag=1;
-               break;
-           }
-           i=add(i,b);
-    }
-    if(flag==1)
-    cout<<"Not a Prime"<<endl;
-    else
-    cout<<"Prime"<<endl;
-    
+    return {ans,a};
 }
 int main()
-{
-    int t;
+{   int t;
     cin>>t;
     while(t--)
-    {
-        string s;
-        cin>>s;
-        isprime(s);
+    { 
+        string a,b;
+        cin>>a>>b;
+        vector<string> ans=divide(a,b);
+        cout<<ans[0]<<"\n"<<ans[1]<<endl;
     }
 }
