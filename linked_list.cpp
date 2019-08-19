@@ -65,40 +65,42 @@ int Del(int x,int y)
     }
 }
 
-int Search(float d)
-{
+void Search(float d)
+{ 
+	int c=0;
     if(head==NULL)
-        return 0;
-        int s=0;
+        {
+        	cout<<-1<<endl;
+        	return;
+        }
     struct Node* temp=head;
     while(temp!=NULL)
     {
         int dd=(get<0>(temp->point))*(get<0>(temp->point))+(get<1>(temp->point))*(get<1>(temp->point));
         if(dd<=d*d)
         {
-            cout<<'('<<get<0>(temp->point)<<','<<get<1>(temp->point)<<')'<<" ";
-            s=1;
+            c++;
         }
         temp=temp->p;
     }
-    cout<<endl;
-    if(s==0)
-    return 0;
-    return 1;
+    if(c!=0)
+    cout<<c<<endl;
+else
+	cout<<-1<<endl;
+return ;
 }
-int Search(int x,int y)
+bool Search(int x,int y)
 {  
-  int c=0;
     if(head==NULL)
-        return 0;
+        return false;
     struct Node* temp=head;
     while(temp!=NULL)
     {
         if(get<0>(temp->point)==x&&get<1>(temp->point)==y)
-            c++;
+            return true;
         temp=temp->p;
     }
-    return c;
+    return false;
 }
 
 int length()
@@ -114,6 +116,7 @@ int length()
 }
 int main()
 {
+	//freopen("input.txt","r",stdin);
    head=NULL;
    int t,x,y,p;
    float d;
@@ -135,19 +138,21 @@ int main()
     if(p==3)
     { 
         cin>>x>>y;
-        cout<<Del(x,y)<<endl;
+        if(Del(x,y)==-1)
+        cout<<-1<<endl;
     }
     if(p==4)
     {
         cin>>d;
-        int xx=Search(d);
-        if(xx==0)
-        cout<<0<<endl;
+        Search(d);
     }
     if(p==5)
     {
         cin>>x>>y;
-        cout<<Search(x,y)<<endl;
+        if(Search(x,y)==1)
+        cout<<"True"<<endl;
+        else
+        cout<<"False"<<endl;
     }
     if(p==6)
     {
