@@ -43,7 +43,7 @@ int infixtopostfix(string s,string aa[])
    {
     if(s[i]>='0'&&s[i]<='9')
     {
-        a=s[i]+a;
+        a=a+s[i];
     }
     else
     {
