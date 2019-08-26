@@ -40,10 +40,16 @@ int infixtopostfix(string s,string aa[])
    stack<char> st;
    int k=0;
    for(int i=0;i<s.length();i++)
-   {
+   { 
+    if(s[i]=='-')
+    {
+        if(i==0||s[i-1]=='('||s[i-1]=='+'||s[i-1]=='-'||s[i-1]=='*'||s[i-1]=='/'||s[i-1]=='^')
+        {a=a+'-';
+        continue;}
+    }
     if(s[i]>='0'&&s[i]<='9')
     {
-        a=s[i]+a;
+        a=a+s[i];
     }
     else
     {
