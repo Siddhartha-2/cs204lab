@@ -116,7 +116,7 @@ int length()
 }
 int main()
 {
-	freopen("input.txt","r",stdin);
+	//freopen("input.txt","r",stdin);
    head=NULL;
    int t,x,y,p;
    float d;
