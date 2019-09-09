@@ -27,7 +27,7 @@ void swap(string* a, string* b)
      return false;
  }
 
-int partition (string arr[], lli low, lli high)  
+/*int partition (string arr[], lli low, lli high)  
 {  
     string pivot = arr[high];
     lli i = (low - 1); 
@@ -53,7 +53,7 @@ void quickSort(string arr[], lli low, lli high)
         quickSort(arr, pi + 1, high);  
     }  
 }  
-
+*/
 int main()
 {
     lli t;
@@ -67,8 +67,8 @@ int main()
         {
             cin>>s[i];
         }
-        //sort(s,s+n,compare);
-        quickSort(s,0,n-1);
+        sort(s,s+n,compare);
+        //quickSort(s,0,n-1);
         for(lli i=0;i<n;i++)
         cout<<s[i];
         cout<<endl;
