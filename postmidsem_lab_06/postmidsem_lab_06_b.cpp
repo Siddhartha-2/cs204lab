@@ -38,7 +38,7 @@ class hash_chain
          lli p_pow=1;
          for(char c: s)
          {
-             value = (value + (c-'a'+1)*p_pow)%m;
+             value = (value + (c-'A'+1)*p_pow)%m;
              p_pow = (p_pow*p)%m;
          }
       return value;
